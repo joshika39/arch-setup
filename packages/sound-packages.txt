@@ -1,0 +1,3 @@
+pipewire-alsa
+pipewire-pulse
+alsa-utils

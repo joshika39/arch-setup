@@ -1,0 +1,5 @@
+joplin
+tor-browser
+osu-lazer
+opentabletdriver
+bitwarden-bin

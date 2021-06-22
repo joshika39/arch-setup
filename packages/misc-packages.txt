@@ -1,0 +1,7 @@
+base-devel
+bluez
+bluez-utils
+kcm-wacomtablet
+xf86-input-wacom
+ntfs-3g
+
