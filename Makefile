@@ -9,3 +9,6 @@ configure-theme:
 
 install-apps:
 	cd packages/ && ../install-aur-apps.sh sudo ../install-official-apps.sh
+
+configure-ja:
+	sudo ja/configure-ja-env.sh && ja/configure-ja-xprofile.sh
