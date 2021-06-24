@@ -1,0 +1,4 @@
+chromium
+libreoffice-fresh
+mesa-demos
+nextcloud-client

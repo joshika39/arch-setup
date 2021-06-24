@@ -7,5 +7,5 @@ fi
 echo "===> downloading XORG and NVIDIA packages"
 echo
 
-pacman -Sy --needed $(<xorg-packages.txt)
+pacman -Sy --needed $(<pkg/xorg-packages.txt)
 

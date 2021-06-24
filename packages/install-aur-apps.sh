@@ -10,7 +10,8 @@ CURRENT_DIR=$(pwd)
 # gpg --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 
 # spotify
-# gpg --recv-keys 4773BD5E130D1D45
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
 
 while read AUR_PKG
 do
@@ -19,4 +20,4 @@ do
     git clone https://aur.archlinux.org/${AUR_PKG}.git
     cd ${AUR_PKG} && makepkg -si --noconfirm && cd $TEMP_DIR
   fi
-done < aur-packages.txt
+done < pkg/aur-packages.txt

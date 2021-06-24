@@ -7,8 +7,8 @@ fi
 echo "===> downloading MISC and SOUND packages"
 echo
 
-pacman -Sy --needed $(<misc-packages.txt)
+pacman -Sy --needed $(<pkg/misc-packages.txt)
 
 echo "=====> downloading Sound packages"
 echo
-pacman -Sy --needed $(<sound-packages.txt)
+pacman -Sy --needed $(<pkg/sound-packages.txt)

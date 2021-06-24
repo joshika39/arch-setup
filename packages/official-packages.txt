@@ -1,3 +1,0 @@
-chromium
-nextcloud-client
-libreoffice-fresh

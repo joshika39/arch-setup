@@ -2,4 +2,4 @@
 
 echo "====> Downloading official apps"
 echo
-pacman -Sy --needed $(<packages/official-packages.txt) 
+pacman -Sy --needed $(<pkg/official-packages.txt) 

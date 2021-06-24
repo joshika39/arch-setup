@@ -7,5 +7,5 @@ fi
 echo "===> downloading plasma packages"
 echo
 
-pacman -Sy --needed $(<plasma-packages.txt)
+pacman -Sy --needed $(<pkg/plasma-packages.txt)
 

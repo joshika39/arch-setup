@@ -1,6 +1,8 @@
+discord_arch_electron
 joplin
 tor-browser
 osu-lazer
 opentabletdriver
+spotify
 bitwarden-bin
 ttf-monapo
