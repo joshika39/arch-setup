@@ -5,7 +5,10 @@ if [ "$EUID" -ne 0 ]
 	       exit
 fi
 
+TEMP=$(mktmp -d)
+CURRENT=$(pwd)
 
+cd ${TEMP}
 pacman-key --init
 dirmngr < /dev/null
 wget https://archstrike.org/keyfile.asc

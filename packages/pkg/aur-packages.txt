@@ -1,5 +1,6 @@
 discord_arch_electron
 joplin
+musixmatch-bin
 tor-browser
 osu-lazer
 opentabletdriver
