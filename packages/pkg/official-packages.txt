@@ -1,4 +1,51 @@
-chromium
-libreoffice-fresh
+
+# Xorg packages
+## ===> Installing Xorg packages
+
+xorg
+xorg-server
+xorg-apps
+xorg-xinit
+
+
+# Nvidia Drivers
+## ===> Installing Nvidia Drivers
+
+nvidia-lts
+nvidia-utils
+lib32-nvidia-utils
+nvidia-prime
+
+# Plasma packages
+
+plasma
+kde-applications
+sddm
+sddm-kcm
+
+
+# Sound packages
+
+pipewire-alsa
+pipewire-pulse
+alsa-utils
+
+# Bluetooth packages
+base-devel
+bluez
+bluez-utils
+
+# Wacom drivers
+kcm-wacomtablet
+xf86-input-wacom
+
+# Misc packages
 mesa-demos
-nextcloud-client
+noto-fonts-emoji
+wget
+
+# Printing packages
+print-manager
+cups
+system-config-printer
+

@@ -2,10 +2,10 @@ all:
 	
 
 install-packages:
-	cd packages/ && sudo ./install-xorg-packages.sh && sudo ./install-plasma-packages.sh && sudo ./install-misc-packages.sh
+	cd packages/ && sudo ./install-official-packages.sh 
 
 configure-theme:
-	sudo ./configure-theme.sh
+	cd packages/ && sudo ./configure-theme.sh
 
 install-apps:
 	cd packages/ && sudo ./install-official-apps.sh && ./install-aur-apps.sh
