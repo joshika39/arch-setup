@@ -26,6 +26,9 @@ xournalpp
 discord_arch_electron
 ##
 
+# THEMES
+sweet-theme-mars-git
+##
 # GAMES
 osu-lazer
 tlauncher-tl

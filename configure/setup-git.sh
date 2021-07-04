@@ -3,8 +3,10 @@
 read -p Email: GIT_EMAIL
 
 ssh-keygen -t ed25519 -C $GIT_EMAIL
-sudo -u joshika45 -i eval $(ssh-agent -s)
+sudo -u $USER -i eval $(ssh-agent -s)
+# eval $(ssh-agent -s)
 
+# sudo -u $USER -i ssh-add /home/$USER//.ssh/id_ed25519
 ssh-add /home/$USER//.ssh/id_ed25519
 xclip -selection clipboard < /home/$USER//.ssh/id_ed25519.pub
 
