@@ -1,18 +1,22 @@
-#!/bin/bash
+#!/bin/sh
 
-read -p Email: GIT_EMAIL
+read -p "Email: " GIT_EMAIL
+read -p "Name: " GIT_NAME
+git config --global user.name $GIT_NAME 
+git config --global user.email $GIT_EMAIL
 
 ssh-keygen -t ed25519 -C $GIT_EMAIL
 
-# ensure the ssh agent is running
+#  ensure the ssh agent is running
 if [[ -z "$SSH_AUTH_SOCK" ]]
 then
-    eval $(ssh-agent)
+	echo "SSH_AUTH if -->"
+	eval `ssh-agent`
 fi
-# sudo -u $USER -i eval ssh-agent $USER
-# eval ssh-agent -s
 
-# sudo -u $USER -i ssh-add /home/$USER//.ssh/id_ed25519
+
+
+
 ssh-add /home/$USER//.ssh/id_ed25519
 xclip -selection clipboard < /home/$USER//.ssh/id_ed25519.pub
 

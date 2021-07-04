@@ -24,6 +24,7 @@ install-apps:
 configure-git:
 	cd configure/ && . ./setup-git.sh 
 
+
 configure-ja:
 	sudo ja/configure-ja-env.sh && ja/configure-ja-xprofile.sh
 
