@@ -1,3 +1,9 @@
+
+# TOOLS
+xclip
+
+# APPS
 chromium
 libreoffice-fresh
 nextcloud-client
+
