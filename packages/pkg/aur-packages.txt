@@ -27,7 +27,7 @@ discord_arch_electron
 ##
 
 # THEMES
-sweet-theme-mars-git
+# sweet-theme-mars-git
 ##
 # GAMES
 osu-lazer
