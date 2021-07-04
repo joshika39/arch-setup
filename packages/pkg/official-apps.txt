@@ -7,3 +7,8 @@ chromium
 libreoffice-fresh
 nextcloud-client
 
+# FIREFOX
+firefox
+firefox-developer-edition-i18n-en-us
+firefox-developer-edition-i18n-ja
+firefox-developer-edition-i18n-hu
