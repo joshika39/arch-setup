@@ -6,7 +6,6 @@ all:
 # 2. packages
 # 3. apps
 #
-
 install-arch:
 	cd arch/ && ./install.sh $(VER)	
 
@@ -22,7 +21,6 @@ install-apps:
 # 2. ja
 # 3. hack
 #
-
 configure-git:
 	cd configure/ && ./setup-git.sh 
 
