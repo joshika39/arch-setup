@@ -15,9 +15,11 @@ gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
 
 while read AUR_PKG
 do
-  if ! pacman -Q ${AUR_PKG} > /dev/null; then  
-    cd $TEMP_DIR
-    git clone https://aur.archlinux.org/${AUR_PKG}.git
-    cd ${AUR_PKG} && makepkg -si --noconfirm && cd $TEMP_DIR
+  if [[ ${AUR_PKG::1} != "#" && ${AUR_PKG::1} != "" ]]; then 
+    if ! pacman -Q ${AUR_PKG} > /dev/null; then  
+      cd $TEMP_DIR
+      git clone https://aur.archlinux.org/${AUR_PKG}.git
+      cd ${AUR_PKG} && makepkg -si --noconfirm && cd $TEMP_DIR
+    fi
   fi
 done < pkg/aur-packages.txt

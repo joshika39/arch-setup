@@ -1,0 +1,4 @@
+plasma
+kde-applications
+sddm
+sddm-kcm

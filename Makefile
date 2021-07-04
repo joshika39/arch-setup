@@ -1,8 +1,9 @@
 all: 
-	
+install-arch:
+	cd arch/ && ./install.sh $(VER)	
 
 install-packages:
-	cd packages/ && sudo ./install-official-packages.sh 
+	cd packages/ && sudo ./install-official-packages.sh $(VER) 
 
 configure-theme:
 	cd packages/ && sudo ./configure-theme.sh

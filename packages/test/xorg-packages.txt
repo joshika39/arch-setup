@@ -1,0 +1,7 @@
+xorg
+xorg-server
+xorg-apps
+xorg-xinit
+nvidia-lts
+nvidia-utils
+lib32-nvidia-utils

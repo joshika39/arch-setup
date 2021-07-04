@@ -1,9 +1,31 @@
-discord_arch_electron
+# DRIVERS
+# -- PRINTERS
+epson-inkjet-printer-201207w
+# -- Wacom
+opentabletdriver
+##
+
+# FONTS
+ttf-monapo
+##
+
+# TOOLS
+scrcpy
+##
+
+# APPS
+bitwarden-bin
 joplin
 musixmatch-bin
-tor-browser
-osu-lazer
-opentabletdriver
 spotify
-bitwarden-bin
-ttf-monapo
+tor-browser
+xournalpp
+##
+
+# SOCIAL MEDIA
+discord_arch_electron
+##
+
+# GAMES
+osu-lazer
+tlauncher-tl
