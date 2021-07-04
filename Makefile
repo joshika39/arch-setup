@@ -22,7 +22,7 @@ install-apps:
 # 3. hack
 #
 configure-git:
-	cd configure/ && ./setup-git.sh 
+	cd configure/ && . ./setup-git.sh 
 
 configure-ja:
 	sudo ja/configure-ja-env.sh && ja/configure-ja-xprofile.sh
