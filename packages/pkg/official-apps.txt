@@ -6,6 +6,7 @@ xclip
 chromium
 libreoffice-fresh
 nextcloud-client
+krita
 
 # FIREFOX
 firefox
