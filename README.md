@@ -28,6 +28,8 @@ For example
 	This sets up a japanese enviroment with Ibus controller
  * `configure-hack`
 	This adds a custom repository, especially **archstrike**
+ * `configure-firefox` 
+	Adds the sweet theme for both standard and developer version of firefox
 
 # Final thougts
 This repo is still under developement, i'm still working on the scripts for configuration

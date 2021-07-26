@@ -24,3 +24,5 @@ configure-ja: # Configures the japanese enviroment
 configure-hack: # Adds a custom hack repository
 	cd hack/ && sudo ./set-up-pacman.sh && sudo ./set-keyring.sh
 
+configure-firefox: # Adds a custom look to firefox
+	cd configure/ && ./firefox.sh	
