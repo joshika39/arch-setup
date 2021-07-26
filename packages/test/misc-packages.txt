@@ -1,8 +1,0 @@
-base-devel
-bluez
-bluez-utils
-kcm-wacomtablet
-nvidia-prime
-noto-fonts-emoji
-wget
-xf86-input-wacom

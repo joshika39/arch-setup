@@ -7,11 +7,10 @@ install-arch: # Installs arch with pacstrap
 	cd arch/ && ./install.sh $(VER)	
 
 install-packages: # Installs joshik39's most used apps packages
-	cd packages/ && sudo ./install-official-packages.sh $(VER) 
+	cd install/ && sudo ./install-official-packages.sh $(VER) 
 
 install-apps: # Installs joshik39's most used apps
-	cd packages/ && sudo ./install-official-apps.sh && ./install-aur-apps.sh
-
+	cd install/ && sudo ./install-official-apps.sh && ./install-aur-apps.sh	
 
 configure-arch: # Configures bash
 	cd arch/ && ./setup-bash.sh
