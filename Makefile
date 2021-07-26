@@ -1,35 +1,27 @@
-all:
+help: # Print help on Makefile
+	@grep '^[^.#]\+:\s\+.*#' Makefile | \
+	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
+	expand -t20
 
-
-## INSTALLING: install-"object"
-# 1. arch
-# 2. packages
-# 3. apps
-#
-install-arch:
+install-arch: # Installs arch with pacstrap
 	cd arch/ && ./install.sh $(VER)	
 
-install-packages:
+install-packages: # Installs joshik39's most used apps packages
 	cd packages/ && sudo ./install-official-packages.sh $(VER) 
 
-install-apps:
+install-apps: # Installs joshik39's most used apps
 	cd packages/ && sudo ./install-official-apps.sh && ./install-aur-apps.sh
 
 
-## CONFIGURING: configure-"object"
-# 1. git
-# 2. ja
-# 3. hack
-#
-configure-git:
+configure-arch: # Configures bash
+	cd arch/ && ./setup-bash.sh
+
+configure-git: # Configures git
 	cd configure/ && . ./setup-git.sh 
 
-
-configure-ja:
+configure-ja: # Configures the japanese enviroment
 	sudo ja/configure-ja-env.sh && ja/configure-ja-xprofile.sh
 
-configure-hack:
+configure-hack: # Adds a custom hack repository
 	cd hack/ && sudo ./set-up-pacman.sh && sudo ./set-keyring.sh
 
-configure-theme:
-	cd packages/ && sudo ./configure-theme.sh
