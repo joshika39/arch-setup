@@ -9,8 +9,8 @@ For example
 
 
 # Makefile targets
-
- * help
+## Misc
+ * `help`
 	Prints help on Makefile
 ## Installation
  * `install-arch`
