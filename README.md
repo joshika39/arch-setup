@@ -5,7 +5,7 @@ This contains the arch preferences and setup for joshika39
 # Usage
 Run `make *target*`
 For example
-$ `make install-arch`
+`$ make install-arch`
 
 
 # Makefile targets
@@ -13,20 +13,20 @@ $ `make install-arch`
  * help
 	Prints help on Makefile
 ## Installation
- * install-arch
+ * `install-arch`
 	This is for the arch iso, to help installing the basic packages
- * install-packages
+ * `install-packages`
 	When arch is installed, use this to install joshika39's most used packages
- * install-apps	
+ * `install-apps`	
 	When arch is installed, use this to install joshika39's most used apps
 ## Configuration
- * configure-arch
+ * `configure-arch`
 	For now, its configures the bash for a custom look.
- * configure-git
+ * `configure-git`
 	It logs you into git with ssh connection, it will prompt for email and username if necessary
- * configure-ja
+ * `configure-ja`
 	This sets up a japanese enviroment with Ibus controller
- * configure-hack
+ * `configure-hack`
 	This adds a custom repository, especially **archstrike**
 
 # Final thougts
