@@ -12,8 +12,8 @@ install-packages: # Installs joshik39's most used apps packages
 install-apps: # Installs joshik39's most used apps
 	cd install/ && sudo ./install-official-apps.sh && ./install-aur-apps.sh	
 
-configure-arch: # Configures bash
-	cd arch/ && ./setup-bash.sh
+configure-console: # Configures bash
+	cd configure/scripts/ && sudo ./setup-bash.sh && sudo ./login.sh
 
 configure-git: # Configures git
 	cd configure/ && . ./setup-git.sh 

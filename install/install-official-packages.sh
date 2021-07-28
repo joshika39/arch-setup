@@ -26,4 +26,6 @@ do
 	fi
 done < pkg/official-packages.txt
 echo ${PKG_DOWNLOAD}
-# pacman -Sy --needed ${PKG_DOWNLOAD}
+echo " -> Installing packages"
+echo
+pacman -Sy --needed ${PKG_DOWNLOAD}

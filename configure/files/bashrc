@@ -21,8 +21,8 @@ RESET="\[$(tput sgr0)\]"
 TIME="${color_ATSG}[${color_USER}\A${color_ATSG}]"
 USER_HOST="${color_ATSG}[${color_USER}\u${color_ATSG}@${color_HOST}\h${color_ATSG}]"
 WDIR="${color_ATSG}[${color_CDIR}\W${color_ATSG}]"
-GIT="\$(__git_ps1 '${color_PROM}(${color_GIT}%s${color_PROM})'${color_PROM}══) "
-COMMAND="         ${color_PROM}╚══${GIT}${color_GIT}"
+GIT="\$(__git_ps1 '${color_PROM}(${color_GIT}%s${color_PROM})'${color_PROM}══) ${RESET}"
+COMMAND="         ${color_PROM}╚══${GIT}${color_GIT} ${RESET}"
 
 alias ls='ls --color=auto'
 alias ll='ls -alh --color=auto'
