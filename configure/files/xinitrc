@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -48,10 +32,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1: -gnome}
+session=${1: kde}
 
 case $session in
- 	lxde	) exec startlxde ;;
+	mate	) exec mate-session ;;
+	kfce	) exec startxfce4 ;;
+ 	kde	)
+	       	export DESKTOP_SESSION=plasma	
+		exec startplasma-x11;;
 	gnome	)
 		export XDG_SESSION_TYPE=x11
 		export GDK_BACKEND=x11
@@ -60,5 +48,6 @@ case $session in
 		twm &
 		xclock -geometry 50x50-1-+1 &
 		exec xterm -geometry 80x50+494+51 -name login ;;
+#		exec gnome-terminal ;;
 	*	) exec $1 ;;
 esac
