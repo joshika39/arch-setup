@@ -16,7 +16,7 @@ configure-console: # Configures bash
 	cd install-arch/configure/scripts/ && sudo ./setup-bash.sh && sudo ./login.sh
 
 configure-git: # Configures git
-	cd install-arch/configure/ && . ./setup-git.sh 
+	cd install-arch/configure/scripts/ && . ./setup-git.sh 
 
 configure-ja: # Configures the japanese enviroment -- DONE
 	cd japanese/ja && sudo configure-ja-env.sh && configure-ja-xprofile.sh
