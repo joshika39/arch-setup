@@ -1,7 +1,9 @@
+## PRIORITIES
+sibs-git
+
+
 # DRIVERS
-# -- PRINTERS
 epson-inkjet-printer-201207w
-# -- Wacom
 opentabletdriver
 ##
 
@@ -14,14 +16,20 @@ scrcpy
 windscribe-cli
 ##
 
+# ENTERTAINMENT
+quickmedia-git
+spotify
+##
+
 # APPS
+anki-release-source
 bitwarden-bin
 joplin
 musixmatch-bin
-spotify
 tor-browser
 xournalpp
 ##
+
 
 # SOCIAL MEDIA
 discord_arch_electron
@@ -30,6 +38,8 @@ discord_arch_electron
 # THEMES
 # sweet-theme-mars-git
 ##
+
 # GAMES
 osu-lazer
 tlauncher-tl
+##

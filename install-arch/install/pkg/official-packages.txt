@@ -46,6 +46,7 @@ xf86-input-wacom
 mesa-demos
 noto-fonts-emoji
 wget
+cpupower
 
 # Printing packages
 print-manager
