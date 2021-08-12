@@ -11,7 +11,7 @@ font xft:DejaVuSans 10.5
 set $mod Mod1
 # AUTOSTART
 # exec --no-startup-id feh --bg-fill ~/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg
-exec ~/.config/rofi/scripts/i3lock.sh
+# exec ~/.config/rofi/scripts/i3lock.sh
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 # exec_always killall polybar; polybar main
