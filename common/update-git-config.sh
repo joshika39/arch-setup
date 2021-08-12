@@ -77,5 +77,5 @@ done < $1
 
 git add ./
 git commit -m "config update $TIME"
-gut push -u
+git push -u
 
