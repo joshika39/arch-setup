@@ -4,10 +4,40 @@ help: # Print help on Makefile
 	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
 	expand -t20
 
-install: common # installs the basic stuff, run as root 
+install-root: common-install common-configure hack # installs the basic stuff, run as ROOT 
+
+install-user: packages user-configure # Run with SUDO!
+
+install-de: i3 kde # Installs the i3 and kde (minimal) Desktop enviroments (Run with sudo)
+
+
+
+# Sub commands
 
 common-install: 
-	cd common/ && ./install.sh
+	cd common/scripts/ && ./install.sh
 
 common-configure: 
-	cd common/ && ./configure-basic.sh && ./disable-beep.sh
+	cd common/scripts && ./configure-basic.sh && ./login.sh
+
+hack:
+	cd common/hack/ && sudo ./set-keyring.sh && sudo ./set-up-pacman.sh
+
+user-packages:
+	cd common/ && sudo ./install-packages.sh files/packages && ./install-packages.sh files/packages.conf
+
+user-configure: 
+	cd profile/ && sudo ./disable-beep.sh && ./ja/configure-ja-xprofile.sh
+
+i3: 
+	cd common/ && 
+	sudo ./install-packages.sh ../de/i3/files/pkg.conf &&
+	./install-packages.sh ../de/i3/files/pkg.conf
+
+kde: 
+	cd common/ && 
+	sudo ./install-packages.sh ../de/kde/files/pkg.conf &&
+	./install-packages.sh ../de/kde/files/pkg.conf
+
+update-config: # Refresh the required files for a fresh start
+	cd common/ && ./update-git-config.sh baklist/list
