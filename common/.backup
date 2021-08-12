@@ -1,0 +1,14 @@
+#!/bin/bash
+
+MAIN_DIR=/home/$USER/.config/
+GIT_DIR="$(pwd)/home/config" 
+
+backups=( 
+	"rofi" 
+	"dunst"
+	"polybar"
+	"kitty"
+	".xinitrc"
+	".bashrc"
+	".Xresources"
+	".xprofile")
