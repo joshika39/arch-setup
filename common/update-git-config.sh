@@ -74,8 +74,9 @@ do
 		fi
 	done
 done < $1
-
-git add ./
-git commit -m "config update $TIME"
-git push -u
+if [[ -d $HOME/arch-setup ]]; then
+	git add .
+	git commit -m "config update $TIME"
+	git push -u
+fi
 
