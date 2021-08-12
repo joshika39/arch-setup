@@ -32,27 +32,24 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1:-kde}
+session=${1:-i3}
 
 case $session in
-	mate	) exec mate-session ;;
-	kfce	) exec startxfce4 ;;
- 	kde	)
+	i3	) 
+		export GTK_IM_MODULE=ibus
+		export QT_IM_MODULE=ibus
+		export XMODIFIERS=@im=ibus
+		ibus-daemon -drx &&
+		$HOME/.fehbg &
+		exec i3;;
 
+	kde	)
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus
 		ibus-daemon -drx &&
 	       	export DESKTOP_SESSION=plasma	
 		exec startplasma-x11;;
-	gnome	)
-		export XDG_SESSION_TYPE=x11
-		export GDK_BACKEND=x11
-		exec gnome-session ;;
-	twm	)
-		twm &
-		xclock -geometry 50x50-1-+1 &
-		exec xterm -geometry 80x50+494+51 -name login ;;
-#		exec gnome-terminal ;;
+
 	*	) exec $1 ;;
 esac
