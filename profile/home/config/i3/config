@@ -7,6 +7,20 @@ default_floating_border none
 hide_edge_borders none
 font xft:DejaVuSans 10.5
 
+# Only relevent for i3-gaps-rounded-git
+# border_radius 15 
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer 4
+gaps bottom 40
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps inverse_outer
+# smart_gaps on
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders no_gaps 
 
 set $monitor eDP-1 
 set $monitor2 HDMI-1-0 
@@ -15,13 +29,15 @@ set $mod Mod1
 
 # AUTOSTART
 # exec --no-startup-id feh --bg-fill ~/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg
-exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id picom -b
 exec_always --no-startup-id nm-applet
-exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
+# exec_always killall -q ibus-daemon
+exec_always --no-startup-id ibus-daemon -drx &
+# exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
 # exec_always killall polybar; polybar main
-
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ## KEY BINDINGS 
 #I dont like my rofi to spawn on my other monitors so I suggest changing your monitors or just deleting -monitor flag
 floating_modifier $mod 
@@ -43,7 +59,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 bindsym XF86Calculator exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
 bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -208,22 +224,6 @@ for_window [window_type="menu"]                         floating en
 # assign [instance="chromium"] $ws2
 # assign [instance="spotify"] $ws1
 
-
-# Only relevent for i3-gaps-rounded-git
-# border_radius 15 
-
-# Set inner/outer gaps
-gaps inner 20
-gaps outer 4
-
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps inverse_outer
-# smart_gaps on
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders no_gaps 
-
 set $base00 #e7e5f6
 set $base01 #212c8c
 set $base02 #5e67bc
@@ -249,3 +249,7 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
+
+#bar{
+#	tray_output primary
+#}

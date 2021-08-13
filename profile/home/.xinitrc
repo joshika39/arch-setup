@@ -40,7 +40,6 @@ case $session in
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus
-		ibus-daemon -drx &&
 		$HOME/.fehbg &
 		exec i3;;
 
@@ -48,7 +47,7 @@ case $session in
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus
-		ibus-daemon -drx &&
+		ibus-daemon -drx &
 	       	export DESKTOP_SESSION=plasma	
 		exec startplasma-x11;;
 
