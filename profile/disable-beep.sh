@@ -8,4 +8,4 @@ fi
 echo "blacklist pcspkr" >> /etc/modprobe.d/nobeep.conf
 echo "setterm -blength 0" >> /etc/profile
 echo "set bell-style none" >> /etc/inputrc
-echo "set bell-style none" >> /home/$SUDO_USER/.inputrc
+sudo -u $SUDO_USER echo "set bell-style none" >> /home/$USER/.inputrc

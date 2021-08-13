@@ -10,4 +10,5 @@ backups=(
 	"rofi" 
 	"dunst"
 	"polybar"
-	"kitty")
+	"kitty"
+	"picom")

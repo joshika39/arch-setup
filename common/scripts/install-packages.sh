@@ -28,8 +28,8 @@ do
 		fi
 	fi
 done < $1
-
-if [ "$EUID" -ne 0 ]; then
+echo " --> before aur"
+if (( $(id -u) != 0 )); then
 	echo
 	echo " --> AUR:"
 
