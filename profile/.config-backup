@@ -4,7 +4,7 @@ MAIN_DIR=/home/$USER/.config/
 subdir=home/
 
 GIT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/$subdir" 
-homesub=config/
+homesub=.config/
 backups=( 
 	"i3"
 	"rofi" 
