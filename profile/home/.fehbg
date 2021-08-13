@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/joshika39/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg' 
+feh --no-fehbg --bg-fill "/home/$USER/Pictures/Backgrounds/alien-moon.jpg"

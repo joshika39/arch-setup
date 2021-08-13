@@ -12,7 +12,7 @@ install-de: i3 kde # Installs the i3 and kde (minimal) Desktop enviroments (Run 
 
 
 
-# Sub commands
+# Sub commands run via root
 
 common-install: 
 	cd common/scripts/ && ./install.sh
@@ -34,7 +34,7 @@ user-packages:
 	cd common/scripts/ && sudo ./install-packages.sh ../files/packages && ./install-packages.sh ../files/packages.conf
 
 user-configure: 
-	cd profile/ && sudo ./disable-beep.sh && ./ja/configure-ja-xprofile.sh
+	cd profile/ && sudo ./disable-beep.sh && ./ja/configure-ja-xprofile.sh && ./setup-assets.sh
 
 
 i3: 
