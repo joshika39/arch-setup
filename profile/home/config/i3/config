@@ -8,13 +8,18 @@ hide_edge_borders none
 font xft:DejaVuSans 10.5
 
 
+set $monitor eDP-1 
+set $monitor2 HDMI-1-0 
+
 set $mod Mod1
+
 # AUTOSTART
 # exec --no-startup-id feh --bg-fill ~/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg
-# exec ~/.config/rofi/scripts/i3lock.sh
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id picom -b
 exec_always --no-startup-id nm-applet
+exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
 # exec_always killall polybar; polybar main
 
 ## KEY BINDINGS 
@@ -35,9 +40,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 
-
-set $monitor eDP-1 
-set $monitor2 HDMI-1-0 
 
 bindsym XF86Calculator exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
 bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
@@ -64,10 +66,10 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+h exec --no-startup-id "i3-msg split h && dunstify horizonstal split"
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v exec --no-startup-id "i3-msg split v && dunstify vertical split"
 
 ## change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
@@ -98,14 +100,6 @@ set $main eDP-1
 
 # Assign workspaces to specific monitor (stacked dual monitor gang)
 
-set $ws1 一
-set $ws2 二
-set $ws3 三
-set $ws4 四
-set $ws5 五
-set $ws6 六
-set $ws7 七
-set $ws8 八
 
 workspace $ws1 output $main
 workspace $ws2 output $main
@@ -117,6 +111,25 @@ workspace $ws7 output $second
 workspace $ws8 output $second
 # exec --no-startup-id i3-msg workspace number 1:$ws1
 # switch to workspace
+
+#set $ws1 一
+#set $ws2 二
+#set $ws3 三
+#set $ws4 四
+#set $ws5 五
+#set $ws6 六
+#set $ws7 七
+#set $ws8 八
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3

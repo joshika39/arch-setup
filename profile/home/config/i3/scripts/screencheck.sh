@@ -16,3 +16,4 @@ else
 	xrandr --output "$2" --right-of "$1"
 fi
 sh ~/.fehbg # wallpaper can look weird if not refreshed
+sh ~/.config/polybar/launch.sh
