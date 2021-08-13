@@ -30,13 +30,13 @@ user-configure:
 	cd profile/ && sudo ./disable-beep.sh && ./ja/configure-ja-xprofile.sh
 
 i3: 
-	cd common/ && 
-	sudo ./install-packages.sh ../de/i3/files/pkg.conf &&
-	./install-packages.sh ../de/i3/files/pkg.conf
+	cd common/ && \
+	sudo ./install-packages.sh ../profile/files/i3-pkg.conf && \
+	./install-packages.sh ../profile/files/i3-pkg.conf
 
 kde: 
-	cd common/ && 
-	sudo ./install-packages.sh ../de/kde/files/pkg.conf &&
+	cd common/ && \
+	sudo ./install-packages.sh ../de/kde/files/pkg.conf && \
 	./install-packages.sh ../de/kde/files/pkg.conf
 
 update-config: # Refresh the required files for a fresh start

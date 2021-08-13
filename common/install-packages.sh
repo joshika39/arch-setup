@@ -46,7 +46,7 @@ if [ "$EUID" -ne 0 ]; then
 			echo 
 			cd $TEMP_DIR
 			git clone https://aur.archlinux.org/${pkg}.git
-			cd ${pkg} && makepkg -si --noconfirm && cd $TEMP_DIR
+			cd ${pkg} && makepkg -si && cd $TEMP_DIR
 		fi
 	done
 else

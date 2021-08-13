@@ -13,6 +13,7 @@ set $mod Mod1
 # exec --no-startup-id feh --bg-fill ~/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg
 # exec ~/.config/rofi/scripts/i3lock.sh
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 # exec_always killall polybar; polybar main
 
@@ -196,7 +197,7 @@ for_window [window_type="menu"]                         floating en
 
 
 # Only relevent for i3-gaps-rounded-git
-border_radius 15 
+# border_radius 15 
 
 # Set inner/outer gaps
 gaps inner 20

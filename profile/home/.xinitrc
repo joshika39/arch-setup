@@ -35,8 +35,8 @@ fi
 session=${1:-kde}
 
 case $session in
-	i3|i3wm           ) 
-#		sudo cpupower frequency-set -u 2400MHz
+	i3|i3wm	)
+		export POLYBAR_HOME="$HOME/.config/polybar/files"
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus

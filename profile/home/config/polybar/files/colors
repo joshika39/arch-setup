@@ -16,40 +16,13 @@
 ;
 ;==========================================================
 
-include-file = $POLYBAR_HOME/colors
-include-file = $POLYBAR_HOME/modules
-include-file = $POLYBAR_HOME/general
-
-[bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 34
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 4
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = Cica:style=Regular:size=12
-
-modules-left = powermenu i3 rofi
-modules-center = date now-playing
-modules-right = pulseaudio xkeyboard memory cpu wlan battery temperature
-
-tray-position = right
-tray-padding = 2
-
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
