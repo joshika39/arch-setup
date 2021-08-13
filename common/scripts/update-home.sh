@@ -20,8 +20,8 @@ do
 	echo $file: $homesub
 	echo
 
-	echo $MAIN_DIR
-	echo $GIT_DIR
+	echo $MAIN_DIR$homesub
+	echo $GIT_DIR$homesub
 	echo
 
 	if [[ ! -d $GIT_DIR$homesub ]]; then
@@ -54,13 +54,19 @@ do
 		current=$GIT_DIR$homesub${backups[$i]}
 		des=$BACKUP${backups[$i]}
 		live=$MAIN_DIR${backups[$i]}
-		git=$GIT_DIR$homesub
-		
+		home=$MAIN_DIR
+#		echo "Backup goes from: $live t:"
+#		echo "Des: $des"
+#		echo
+
+#		echo "Copy: $current to: "
+#		echo "Des: $home"
+#		continue
 		if [[ -d $current || -f $current ]]; then
 			if [[ -d $live || -f $live ]]; then	
 				echo "Backing up home: $(cp -rv $live $des)" >> $BACKUP/.log
 			fi
-			echo "Copy: $(cp -rv $current $live)" >> $BACKUP/.log
+			echo "Copy: $(cp -rv $current $home)" >> $BACKUP/.log
 		else
 			echo $live
 		fi

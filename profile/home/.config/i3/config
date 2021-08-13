@@ -45,8 +45,7 @@ bindsym $mod+y border none
 # bindsym $mod+c exec killall dunst; exec rofi -show calc -theme ~/.config/rofi/launcher.rasi -monitor eDP-1 
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
-# exec kitty
-# bindsym $mod+d exec kitty 
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -215,7 +214,7 @@ for_window [window_role="task_dialog"]                  floating enable
 for_window [window_role="Preferences"]                  floating enable
 for_window [window_type="dialog"]                       floating enable 
 for_window [window_type="menu"]                         floating enable
-# for_window [window_type="spectacle"]                    floating enable
+# for_window [class="bitwarden"]                    floating enable
 # for_window [window_type="save_as"]                      floating enable
 # for_window [window_type="copyq"]                        floating enable
 # for_window [window_type="gcolor"]			floating enable

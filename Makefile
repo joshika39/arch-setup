@@ -31,25 +31,25 @@ hack:
 # and of course the japanese environment
 ###
 user-packages:
-	cd common/ && sudo ./install-packages.sh files/packages && ./install-packages.sh files/packages.conf
+	cd common/scripts/ && sudo ./install-packages.sh ../files/packages && ./install-packages.sh ../files/packages.conf
 
 user-configure: 
 	cd profile/ && sudo ./disable-beep.sh && ./ja/configure-ja-xprofile.sh
 
 
 i3: 
-	cd common/ && \
-	sudo ./install-packages.sh ../profile/files/i3-pkg.conf && \
-	./install-packages.sh ../profile/files/i3-pkg.conf
+	cd common/scripts/ && \
+	sudo ./install-packages.sh ../../profile/files/i3-pkg.conf && \
+	./install-packages.sh ../../profile/files/i3-pkg.conf
 
 kde: 
-	cd common/ && \
-	sudo ./install-packages.sh ../profile/files/kde-pkg.conf && \
-	./install-packages.sh ../profile/files/kde-pkg.conf
+	cd common/scripts/ && \
+	sudo ./install-packages.sh ../../profile/files/kde-pkg.conf && \
+	./install-packages.sh ../../profile/files/kde-pkg.conf
 
 update-config: # Refresh the required files for a fresh start
 	cd common/scripts/ && ./update-git-config.sh ../baklist/list
 
 
-user-home-configure:
-	cd common/scripts/ && ./update-home.sh ../backlist/list
+update-home:
+	cd common/scripts/ && ./update-home.sh ../baklist/list
