@@ -33,6 +33,9 @@ else
 	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g dosfstools nano vim
 	pacman -Sy --needed grub efibootmgr os-prober
 
+	systemctl enable reflector.timer
+	systemctl start reflector.timer
+	
 	grub-install
 	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 	grub-mkconfig -o /boot/grub/grub.cfg
@@ -40,8 +43,6 @@ fi
 
 systemctl enable NetworkManager
 systemctl enable sshd
-systemctl enable reflector.timer
-systemctl start reflector.timer
 
 
 read -p "The ordinary user's username:" user
