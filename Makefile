@@ -58,8 +58,9 @@ user-packages:
 user-packages-live:
 	cd common/scripts/ && \
 		./install-packages.sh ../files/default-packages.conf && \
-		sudo ./install-packages.sh ../files/default-packages.conf
-
+		sudo ./install-packages.sh ../files/default-packages.conf && \
+		./install-packages.sh ../files/extra-packages-live.conf && \
+		sudo ./install-packages.sh ../files/extra-packages-live.conf
 
 user-configure: 
 	cd profile/ && sudo ./disable-beep.sh && ./japanese/ja/configure-ja-xprofile.sh && ./setup-assets.sh

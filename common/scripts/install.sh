@@ -14,11 +14,11 @@ fi
 exit
 
 if [[ $1 == "live" ]]; then
-	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g nano vim
+	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g dosfstools nano vim
 	pacman -Sy --needed grub efibootmgr os-prober
 	
 	grub-install --target=i386-pc $2 --recheck
-	grub-install --target=x86_64-efi --efi-directory=esp --removable --recheck
+	grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable --recheck
 else
 
 	pacman -Syy
@@ -30,7 +30,7 @@ else
 	sudo pacman -Syu
 	cat /etc/pacman.d/mirrorlist
 
-	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g nano vim
+	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g dosfstools nano vim
 	pacman -Sy --needed grub efibootmgr os-prober
 
 	grub-install
