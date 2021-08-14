@@ -6,26 +6,43 @@ if [ "$EUID" -ne 0 ]
 fi
 echo " --> Installing default packages" 
 
-pacman -Syy
-pacman -S reflector rsync curl
+if [[ $1 == "live" && -z $2 ]]; then
+	echo "Live option choosed, but not passed the device name! Exiting..."
+	echo
+	exit
+fi
+exit
 
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+if [[ $1 == "live" ]]; then
+	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g nano vim
+	pacman -Sy --needed grub efibootmgr os-prober
+	
+	grub-install --target=i386-pc $2 --recheck
+	grub-install --target=x86_64-efi --efi-directory=esp --removable --recheck
+else
 
-reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-sudo pacman -Syu
-cat /etc/pacman.d/mirrorlist
+	pacman -Syy
+	pacman -S reflector rsync curl
 
-pacman -Sy --needed openssh networkmanager git sudo ntfs-3g nano vim
-pacman -Sy --needed grub efibootmgr os-prober
+	cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+
+	reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+	sudo pacman -Syu
+	cat /etc/pacman.d/mirrorlist
+
+	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g nano vim
+	pacman -Sy --needed grub efibootmgr os-prober
+
+	grub-install
+	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+	grub-mkconfig -o /boot/grub/grub.cfg
+fi
 
 systemctl enable NetworkManager
 systemctl enable sshd
 systemctl enable reflector.timer
 systemctl start reflector.timer
 
-grub-install
-echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
 
 read -p "The ordinary user's username:" user
 

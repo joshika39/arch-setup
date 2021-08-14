@@ -10,9 +10,10 @@ install-user: user-packages user-configure # Install the common packages
 
 install-de: i3 kde # Installs the i3 and kde (minimal) Desktop enviroments (Run with sudo)
 
+install-live-arch: user-packages-live user-configure i3 kde # Install a basic arc to a usb
+
 update-config: # Refresh the required files for a fresh start
 	cd common/scripts/ && ./update-git-config.sh ../baklist/list
-
 
 update-home: # Copy the repository contents to HOME
 	cd common/scripts/ && ./update-home.sh ../baklist/list
@@ -33,7 +34,7 @@ git-config: # logins to git via SSH
 # which is obligatory if you want to proceed
 ###
 common-install: 
-	cd common/scripts/ && ./install.sh
+	cd common/scripts/ && ./install.sh $(VER) $(IPATH)
 
 common-configure: 
 	cd common/scripts/ && ./configure-basic.sh && ./login.sh
@@ -49,8 +50,16 @@ hack:
 ###
 user-packages:
 	cd common/scripts/ && \
-		./install-packages.sh ../files/packages.conf && \
-		sudo ./install-packages.sh ../files/packages.conf
+		./install-packages.sh ../files/default-packages.conf && \
+		sudo ./install-packages.sh ../files/default-packages.conf && \
+		./install-packages.sh ../files/extra-packages.conf && \
+		sudo ./install-packages.sh ../files/extra-packages.conf
+
+user-packages-live:
+	cd common/scripts/ && \
+		./install-packages.sh ../files/default-packages.conf && \
+		sudo ./install-packages.sh ../files/default-packages.conf
+
 
 user-configure: 
 	cd profile/ && sudo ./disable-beep.sh && ./japanese/ja/configure-ja-xprofile.sh && ./setup-assets.sh
@@ -69,5 +78,4 @@ kde:
 	cd common/scripts/ && \
 	sudo ./install-packages.sh ../../profile/files/kde-pkg.conf && \
 	./install-packages.sh ../../profile/files/kde-pkg.conf
-
 
