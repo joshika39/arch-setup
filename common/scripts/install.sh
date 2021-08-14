@@ -11,11 +11,10 @@ if [[ $1 == "live" && -z $2 ]]; then
 	echo
 	exit
 fi
-exit
 
 if [[ $1 == "live" ]]; then
 	pacman -Sy --needed openssh networkmanager git sudo ntfs-3g dosfstools nano vim
-	pacman -Sy --needed grub efibootmgr os-prober
+	pacman -Sy --needed grub efibootmgr
 	
 	grub-install --target=i386-pc $2 --recheck
 	grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable --recheck
@@ -38,9 +37,9 @@ else
 	
 	grub-install
 	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
-	grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
+grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 systemctl enable sshd
 
@@ -49,9 +48,10 @@ read -p "The ordinary user's username:" user
 
 line=" %wheel ALL=(ALL) ALL"; sed -i "/^#$line/ c$line" /etc/sudoers
 line="[multilib]"; sed -i "/^#$line/ c$line" /etc/pacman.conf
-line="Include = /etc/pacman.d/mirrorlist"; sed -i "/^#$line/ c$line" /etc/pacman.conf
+line="Include = \/etc\/pacman.d\/mirrorlist"; sed -i "/^#$line/ c$line" /etc/pacman.conf
 
 useradd -m -G wheel $user
-
+echo " --> Setting the password for $user"
 passwd $user
+echo " --> Setting the password for root"
 passwd
