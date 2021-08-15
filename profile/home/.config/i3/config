@@ -22,30 +22,30 @@ gaps bottom 40
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders no_gaps 
 
-set $monitor eDP-1 
-set $monitor2 HDMI-1-0 
+set $monitor $(get_env $MONITOR1)
+set $monitor2 $(get_env $MONITOR2)
 
 set $mod Mod1
 
 # AUTOSTART
-# exec --no-startup-id feh --bg-fill ~/Pictures/Backgrounds/alien-moon---rmradev-wallpaper.jpg
+
 # exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
- exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
- exec --no-startup-id picom -b
- exec_always --no-startup-id nm-applet
-# exec_always killall -q ibus-daemon
- exec_always --no-startup-id ibus-daemon -drx &
-# exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/rofi/scripts/i3lock.sh --nofork
+exec --no-startup-id picom -b
+exec_always --no-startup-id nm-applet
+
+exec_always --no-startup-id ibus-daemon -drx &
+
 # exec_always killall polybar; polybar main
- exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ## KEY BINDINGS 
 #I dont like my rofi to spawn on my other monitors so I suggest changing your monitors or just deleting -monitor flag
 
 floating_modifier $mod 
 bindsym $mod+y border none
-# bindsym $mod+c exec --no-startup-id killall dunst; exec --no-startup-id rofi -show calc -theme ~/.config/rofi/launcher.rasi
+bindsym $mod+c exec --no-startup-id killall dunst; exec --no-startup-id rofi -show calc -theme ~/.config/rofi/launcher.rasi
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -columns 3 -lines 9
-
+bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
 # bindsym --release $mod+d exec --no-startup-id dmenu_run
 
 
@@ -56,10 +56,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-bindsym XF86Calculator exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh $monitor $monitor2 1360x768
+bindsym XF86Calculator exec --no-startup-id   ~/.config/xinit.d/screencheck.sh
 bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 
 
