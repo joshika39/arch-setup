@@ -11,4 +11,5 @@ backups=(
 	"dunst"
 	"polybar"
 	"kitty"
-	"picom")
+	"picom"
+	"locale.conf")

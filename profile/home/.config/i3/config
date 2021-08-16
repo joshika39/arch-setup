@@ -25,6 +25,9 @@ smart_borders no_gaps
 set $monitor $(get_env $MONITOR1)
 set $monitor2 $(get_env $MONITOR2)
 
+set $res1 $(get_env $RESOLUTION1)
+set $res2 $(get_env $RESOLUTION2)
+
 set $mod Mod1
 
 # AUTOSTART
@@ -45,9 +48,8 @@ floating_modifier $mod
 bindsym $mod+y border none
 bindsym $mod+c exec --no-startup-id killall dunst; exec --no-startup-id rofi -show calc -theme ~/.config/rofi/launcher.rasi
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -columns 3 -lines 9
-bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/rofi/scripts/i3lock.sh
+bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/i3/scripts/i3lock.sh 
 # bindsym --release $mod+d exec --no-startup-id dmenu_run
-
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -59,7 +61,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-bindsym XF86Calculator exec --no-startup-id   ~/.config/xinit.d/screencheck.sh
+bindsym XF86Calculator exec --no-startup-id   ~/.config/xinit.d/screencheck.sh 1360x768
 bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 
 
@@ -113,8 +115,8 @@ bindsym $mod+F1 layout toggle split
 
 
 # MONITORS
-set $second HDMI-1-0 
-set $main eDP-1
+set $second $monitor2
+set $main $monitor1
 
 # Assign workspaces to specific monitor (stacked dual monitor gang)
 

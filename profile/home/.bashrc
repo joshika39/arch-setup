@@ -259,3 +259,7 @@ umask 022
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+
+
+# source $HOME/.config/xinit.d/screencheck.sh
