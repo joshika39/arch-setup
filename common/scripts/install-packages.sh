@@ -32,8 +32,10 @@ echo " --> before aur"
 if (( $(id -u) != 0 )); then
 	echo
 	echo " --> AUR:"
-
-	TEMP_DIR=$(mktemp -d)
+	if [[ ! -d $HOME/.aur-installs ]];then
+		mkdir $HOME/.aur-installs/	
+	fi
+	TEMP_DIR=$HOME/.aur-installs
 	CURRENT_DIR=$(pwd)
 	for ((i = 0; i < ${#COMMANDS[@]}; i++))
 	do
@@ -47,6 +49,7 @@ if (( $(id -u) != 0 )); then
 			cd $TEMP_DIR
 			git clone https://aur.archlinux.org/${pkg}.git
 			cd ${pkg} && makepkg -si && cd $TEMP_DIR
+			rm -r $TEMP_DIR/*
 		fi
 	done
 else

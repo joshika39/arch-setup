@@ -47,7 +47,7 @@ case $session in
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus
 		$HOME/.fehbg &
-		exec i3
+		. $HOME/.config/i3/scripts/run.sh
 		;;
 
 	kde	)
