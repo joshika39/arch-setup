@@ -12,4 +12,5 @@ backups=(
 	"polybar"
 	"kitty"
 	"picom"
+	"xinit.d"
 	"locale.conf")

@@ -1,16 +1,24 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+images=()
+
+[[ -z $RESOLUTION1 ]] && echo "missing resolution" > /tmp/lockerror.txt && exit
+
+echo "$RESOLUTION1" > /tmp/lockdebug.txt
+echo "$RESOLUTION2" >> /tmp/lockdebug.txt
+
+import -silent -window root -crop +repage $RESOLUTION1 /tmp/screen.png
 
 mapfile -t res < <(xrandr | grep '*' | awk '{print $1}')
+echo ${#res[@]} >> /tmp/lockdebug.txt
 
-
-for (( i=0; i < ${#res[@]}; i++ )); 
-do
-	if (( i == 0 )); then
-		res1=${res[i]}
-	else
-		res2=${res[i]}
-	fi
-done
+if (( ${#res[@]} == 2 )); then
+	images+=("/tmp/screen-0.png" "/tmp/screen-1.png")
+	echo "one" >> /tmp/lockdebug.txt
+else
+	images+=("/tmp/screen.png")
+	echo "two" >> /tmp/lockdebug.txt
+fi	
 
 ## Get colors -----------------
 BG="#1e287d"
@@ -30,29 +38,13 @@ lockimage=/tmp/lockimage.png
 
 scrot $lockimage
 
-mapfile -t displays < <(xrandr | grep ' connected')
 
-for (( i=0; i<${#displays[@]}; i++)); do
-#	echo $i
-  	name=`echo ${displays[i]} | cut -d " " -f 1`
-
-
-	if [[ `echo ${displays[i]} | cut -d " " -f 3` == "primary" ]]; then
-		crop="`echo ${displays[i]} | cut -d " " -f 4`"
-	else
-		crop="`echo ${displays[i]} | cut -d " " -f 3`"
-	fi
-  
-	import -silent -window root -crop $crop /tmp/image$i.png
-done
-
-images=()
-
-for (( i=0; i < ${#displays[@]}; i++ ));
-do
-#	echo "${display[i]}"
-	images+=( "/tmp/image$i.png" )
-done
+#for (( i=0; i<${#res[@]}; i++)); do
+#	(( i >= 2 )) && exit
+#	echo ${res[i]}
+#  	import -silent -window root -crop ${res[i]} /tmp/image${res[i]}.png
+#	images+=( "/tmp/image${res[i]}.png" )
+#done
 
 text="fortune linux"
 font="Cica-Regular"
@@ -60,21 +52,22 @@ BLUR="5x4"
 hue=(-level "0%,100%,0.6" -set colorspace Gray -average) 
 effect=(-scale 20% -scale 500% )
 
-for (( i=0; i < ${#images[@]}; i++ ))
+
+
+for (( i=0; i < ${#res[@]}; i++ ))
 do
+	echo ${images[i]} >> /tmp/lockdebug.txt
 	convert ${images[i]} "${hue[@]}" "${effect[@]}" ${images[i]}
 	convert ${images[i]} -fill black -colorize 50% ${images[i]}
 #	convert ${images[i]} -fill $MAGENTA2 -colorize 30% ${images[i]}	
 
-	if (( i == 0 )); then
-
-		convert ${images[i]} -gravity center -repage $res1+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
-
-	else	
+	convert ${images[i]} -gravity center -repage ${res[i]}+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
+#		echo "converted" >> /tmp/lockdebug.txt
+	
 		 
-		convert ${images[i]} -gravity center -repage $res2+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
+#		convert ${images[i]} -gravity center -repage ${res[i]}+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
 
-	fi
+
 done
 
 
@@ -130,5 +123,5 @@ i3lock \
 --time-str="%I:%M %p" \
 --date-str="%b %d, %G" \
 
-rm ${images[@]} 
-rm $lockimage
+# rm ${images[@]} 
+# rm $lockimage

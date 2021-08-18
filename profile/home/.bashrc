@@ -261,5 +261,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
+export MONITOR1=eDP-1
+export MONITOR2=HDMI-1-0
+
+export RESOLUTION1=1920x1080
+export RESOLUTION2=1360x768
 
 # source $HOME/.config/xinit.d/screencheck.sh

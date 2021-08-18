@@ -35,19 +35,21 @@ fi
 session=${1:-i3}
 
 case $session in
-	i3|i3wm	)	
+	i3|i3wm	)
+		startLoc=$HOME/.config/xinit.d	
 		if [ -d ~/.config/xinit.d/ ] ; then
 			for f in ~/.config/xinit.d/?*.sh ; do
 				[ -x "$f" ] && . "$f"
 			done
 			unset f
 		fi
+
 		export POLYBAR_HOME="$HOME/.config/polybar/files"
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
-		export XMODIFIERS=@im=ibus
+		export XMODIFIERS=@im=ibus	
 		$HOME/.fehbg &
-		. $HOME/.config/i3/scripts/run.sh
+		exec i3
 		;;
 
 	kde	)
