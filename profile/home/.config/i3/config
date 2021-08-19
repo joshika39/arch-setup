@@ -26,7 +26,7 @@ set $monitor1 eDP-1
 set $monitor2 HDMI-1-0
 
 set $res1 1920x1080
-set $res2 1360x768
+set $res2 
 
 set $mod Mod1
 
@@ -90,11 +90,6 @@ bindsym $mod+h exec --no-startup-id "i3-msg split h && dunstify horizonstal spli
 
 # split in vertical orientation
 bindsym $mod+v exec --no-startup-id "i3-msg split v && dunstify vertical split"
-
-## change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

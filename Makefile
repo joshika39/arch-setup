@@ -8,7 +8,7 @@ install-root: common-install common-configure # installs the basic stuff, run as
 
 install-user: user-packages user-configure # Install the common packages
 
-install-de: i3 kde # Installs the i3 and kde (minimal) Desktop enviroments (Run with sudo)
+install-de: i3 # Installs the i3 and kde (minimal) Desktop enviroments (Run with sudo)
 
 install-live-arch: user-packages-live user-configure i3 kde # Install a basic arc to a usb
 

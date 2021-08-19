@@ -50,7 +50,7 @@ images=()
 
 for (( i=0; i < ${#displays[@]}; i++ ));
 do
-#	echo "${display[i]}"
+#	echo "${display[i]}
 	images+=( "/tmp/image$i.png" )
 done
 
@@ -80,7 +80,7 @@ done
 
 convert ${images[@]} +append $lockimage
 
-exit
+
 
 i3lock \
 -i $lockimage \
