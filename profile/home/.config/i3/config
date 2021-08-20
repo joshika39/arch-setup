@@ -25,7 +25,7 @@ smart_borders no_gaps
 set $monitor1 eDP-1
 set $monitor2 HDMI-1-0
 
-set $res1 1920x1080
+set $res1 
 set $res2 
 
 set $mod Mod1

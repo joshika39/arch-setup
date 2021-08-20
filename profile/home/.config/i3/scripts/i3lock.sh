@@ -54,7 +54,7 @@ do
 	images+=( "/tmp/image$i.png" )
 done
 
-text="fortune linux"
+text="fortune bible"
 font="Cica-Regular"
 BLUR="5x4"
 hue=(-level "0%,100%,0.6" -set colorspace Gray -average) 
