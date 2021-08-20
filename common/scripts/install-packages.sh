@@ -49,7 +49,7 @@ if (( $(id -u) != 0 )); then
 			cd $TEMP_DIR
 			git clone https://aur.archlinux.org/${pkg}.git
 			cd ${pkg} && makepkg -si && cd $TEMP_DIR
-			rm -r $TEMP_DIR/*
+			sudo rm -r $TEMP_DIR/*
 		fi
 	done
 else
