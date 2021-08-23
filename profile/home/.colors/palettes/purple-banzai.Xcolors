@@ -1,0 +1,32 @@
+! Purple Banzai
+
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+
+#define FOREGROUND #33FFAA
+#define FOREGROUND_alt #00C473
+#define BACKGROUND #824A96
+#define BACKGROUND_alt #E440DF
+
+#define ACCENT1 #1A7A52
+#define ACCENT2 #00FF95
+#define ACCENT3 #89E08A 
+#define ACCENT4 ACCENT1 
+#define ACCENT5 ACCENT2 
+#define ACCENT6 ACCENT2
+#define ACCENT7 
+
+
+#define ALERT #007FFF
+#define ERROR #FE453D
+#define SUCCESS #7AFFB2
+#define WARNING #FEA53D
+
+

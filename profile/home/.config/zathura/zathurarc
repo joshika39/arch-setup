@@ -17,7 +17,7 @@ set scroll-step 100
 set zoom-min 10
 set guioptions ""
 
-include $HOME/.config/zathura/colors
+include ~/.config/zathura/colors
 
 set font "Cica-Regular 15"
 

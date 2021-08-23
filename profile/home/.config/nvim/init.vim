@@ -8,6 +8,12 @@
 " Individual settings can be reverted with ":set option&".
 " Other commands can be reverted as mentioned below.
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
