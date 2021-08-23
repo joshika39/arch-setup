@@ -10,13 +10,16 @@
 # inactive_bg=
 # inactive_underline=
 
-active_text_color="#c76ec6"
-active_bg=
-active_underline="#d642db"
+FG=`xrdb -query | grep -w "*foreground" | cut -f 2`
+FG_alt=`xrdb -query | grep -w "*foreground_alt" | cut -f 2`
 
-inactive_text_color="#b9b0ff"
+active_text_color="$FG"
+active_bg=
+active_underline="$FG"
+
+inactive_text_color="$FG_alt"
 inactive_bg=
-inactive_underline="#5c5dca"
+inactive_underline="$FG_alt"
 
 separator="·"
 show="window_class" # options: window_title, window_class, window_classname

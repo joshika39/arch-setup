@@ -12,5 +12,7 @@ backups=(
 	"polybar"
 	"kitty"
 	"picom"
+	"zathura"
 	"xinit.d"
+	"nvim"
 	"locale.conf")

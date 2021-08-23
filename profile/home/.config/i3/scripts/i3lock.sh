@@ -13,18 +13,24 @@ do
 done
 
 ## Get colors -----------------
-BG="#1e287d"
-FG="#edebfc"
 
-BLACK="#101542"
-RED="#c76ec6"
-GREEN="#34bfa8"
-YELLOW="#e798cb"
-BLUE="#5c5dca"
-MAGENTA="#c76ec6"
-CYAN="#3496bd"
-WHITE="#4E5380"
-MAGENTA2="#d642db"
+FG=`xrdb -query | grep -w "*foreground" | cut -f 2`
+BG=`xrdb -query | grep -w "*background" | cut -f 2`
+
+FG_alt=`xrdb -query | grep -w "*foreground_alt" | cut -f 2`
+BG_alt=`xrdb -query | grep -w "*background_alt" | cut -f 2`
+
+a1=`xrdb -query | grep -w "*accent1" | cut -f 2`
+a2=`xrdb -query | grep -w "*accent2" | cut -f 2`
+a3=`xrdb -query | grep -w "*accent3" | cut -f 2`
+a4=`xrdb -query | grep -w "*accent4" | cut -f 2`
+a5=`xrdb -query | grep -w "*accent5" | cut -f 2`
+a6=`xrdb -query | grep -w "*accent6" | cut -f 2`
+a7=`xrdb -query | grep -w "*accent7" | cut -f 2`
+
+alert=`xrdb -query | grep -w "*alert" | cut -f 2`
+warning=`xrdb -query | grep -w "*warning" | cut -f 2`
+success=`xrdb -query | grep -w "*success" | cut -f 2`
 
 lockimage=/tmp/lockimage.png
 
@@ -63,16 +69,16 @@ effect=(-scale 20% -scale 500% )
 for (( i=0; i < ${#images[@]}; i++ ))
 do
 	convert ${images[i]} "${hue[@]}" "${effect[@]}" ${images[i]}
-	convert ${images[i]} -fill black -colorize 50% ${images[i]}
-#	convert ${images[i]} -fill $MAGENTA2 -colorize 30% ${images[i]}	
+#	convert ${images[i]} -fill black -colorize 50% ${images[i]}
+	convert ${images[i]} -fill $BG -colorize 100% ${images[i]}	
 
 	if (( i == 0 )); then
 
-		convert ${images[i]} -gravity center -repage $res1+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
+		convert ${images[i]} -gravity center -repage $res1+0+0 -font "$font" -pointsize 26 -fill "$FG" -annotate +0+250 "`$text`" ${images[i]}
 
 	else	
 		 
-		convert ${images[i]} -gravity center -repage $res2+0+0 -font "$font" -pointsize 26 -fill "$MAGENTA" -annotate +0+250 "`$text`" ${images[i]}
+		convert ${images[i]} -gravity center -repage $res2+0+0 -font "$font" -pointsize 26 -fill "$FG" -annotate +0+250 "`$text`" ${images[i]}
 
 	fi
 done
@@ -84,28 +90,28 @@ convert ${images[@]} +append $lockimage
 
 i3lock \
 -i $lockimage \
---color="${BG}D9" \
+--color="${BG}" \
 \
---insidever-color=${GREEN}	\
---insidewrong-color=${RED}	\
+--insidever-color=${success}	\
+--insidewrong-color=${warning}	\
 --inside-color="${BG}00"	\
 \
---ringver-color=${GREEN} \
---ringwrong-color=${RED} \
---ring-color=${BLUE} \
+--ringver-color=${success} \
+--ringwrong-color=${warning} \
+--ring-color=${FG} \
 \
---line-color=${BG} \
---separator-color=${BG}	\
+--line-color=${a3} \
+--separator-color=${a1}	\
 \
---keyhl-color=${YELLOW}	\
---bshl-color=${RED} \
+--keyhl-color=${a7}	\
+--bshl-color=${warning} \
 \
---verif-color=${BG} \
+--verif-color=${a5} \
 --wrong-color=${FG} \
 --layout-color=${FG} \
 \
---time-color=${BLUE} \
---date-color=${BLUE} \
+--time-color=${a3} \
+--date-color=${a3} \
 \
 --pass-media-keys \
 --pass-screen-keys \

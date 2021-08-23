@@ -63,6 +63,6 @@ source ./$HOME/.config/xinit.d/00-detect-setup.sh
 
 $HOME/.config/xinit.d/10-update-i3.sh
 
-sh $HOME/.fehbg # wallpaper can look weird if not refreshed
+feh --no-fehbg --bg-fill "$HOME/.BG.jpg"
 
 $HOME/.config/polybar/launch.sh

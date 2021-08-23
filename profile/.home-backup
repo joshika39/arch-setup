@@ -9,5 +9,4 @@ backups=(
 	".xinitrc"
 	".bashrc"
 	".Xresources"
-	".xprofile"
-	".fehbg")
+	".colors")

@@ -1,3 +1,53 @@
+#include "/home/joshika39/.xcolorscheme"
+
+*fading:                          8
+*fadeColor:                       black
+*cursorColor:                     FOREGROUND
+*pointerColorBackground:          BACKGROUND
+*pointerColorForeground:          FOREGROUND
+
+*foreground:  FOREGROUND
+*background:  BACKGROUND
+*foreground_alt:  FOREGROUND_alt
+*background_alt:  BACKGROUND_alt
+
+*alert:		ALERT
+*error: 	ERROR
+*success:	SUCCESS
+*warning:	WARNING
+
+*accent1: ACCENT1
+*accent2: ACCENT2
+*accent3: ACCENT3
+*accent4: ACCENT4
+*accent5: ACCENT5
+*accent6: ACCENT6
+*accent7: ACCENT7
+
+rofi.color-window: BACKGROUND, BACKGROUND, BACKGROUND
+rofi.color-normal: BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, ACCENT1
+rofi.color-active: BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, ACCENT1
+rofi.color-urgent: BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, ACCENT1
+
+
+*color0:      COLOR0
+*color1:      FOREGROUND
+*color2:      COLOR2
+*color3:      COLOR3
+*color4:      ACCENT1
+*color5:      FOREGROUND
+*color6:      
+*color7:      BACKGROUND
+
+*color8:      COLOR8
+*color9:      COLOR9
+*color10:  	  COLOR10
+*color11:  	  COLOR11
+*color12:  	  COLOR12
+*color13:  	  COLOR13
+*color14:  	  COLOR14
+*color15:  	  COLOR15
+
 Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
@@ -6,40 +56,14 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #1e287d
-XTerm*foreground:        #ffffff
-XTerm*pointerColor:      #ffffff
+XTerm*background:        BACKGROUND
+
+XTerm*foreground:        FOREGROUND
+XTerm*pointerColor:      FOREGROUND
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
-
-*background:                      #1e287d
-*foreground:                      #ffffff
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #ffffff
-*pointerColorBackground:          #1e287d
-*pointerColorForeground:          #ffffff
-
-*background:  #1e287d
-*foreground:  #ffffff
-*color0:      #505566
-*color1:      #c76ec6
-*color2:      #3496bd
-*color3:      #e798cb
-*color4:      #5c5dca
-*color5:      #c76ec6
-*color6:      #3496bd
-*color7:      #e7e5f6
-*color8:      #798299
-*color9:      #c76ec6
-*color10:  	  #3496bd
-*color11:  	  #e798cb
-*color12:  	  #5c5dca
-*color13:  	  #c76ec6
-*color14:  	  #3496bd
-*color15:  	  #ffffff
 	  
 Xcursor.theme: Bibata-Original-Classic
 Xcursor.size:                     0
@@ -50,7 +74,7 @@ URxvt.font:                       9x15,xft:DejaVu Sans Mono Nerd Font Complete M
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
 ! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
-e1e3e4
+!
 URxvt.depth:                      32
 URxvt.background:                 [100]#ffffff
 URxvt*scrollBar:                  false

@@ -1,34 +1,29 @@
 * {
-    red:                         rgba ( 199, 110, 198, 100 % );
-    blue:                        rgba ( 92, 93, 202, 100 % );
-    lightfg:                     rgba ( 231, 229, 246, 100 % );
-    lightbg:                     #5e67bc;
-    foreground:                  rgba ( 255, 255, 255, 100 % );
-    background:                  rgba ( 30, 40, 125, 100 % );
-    background-color:            rgba ( 30, 40, 125, 0 % );
-    separatorcolor:              @foreground;
-    border-color:                @foreground;
-    selected-normal-foreground:  @lightbg;
-    selected-normal-background:  @lightfg;
-    selected-active-foreground:  @background;
-    selected-active-background:  @blue;
-    selected-urgent-foreground:  @background;
-    selected-urgent-background:  @red;
+selected-normal-foreground:  #ffffff;
+    foreground:                  #ffffff;
     normal-foreground:           @foreground;
-    normal-background:           @background;
-    active-foreground:           @blue;
-    active-background:           @background;
-    urgent-foreground:           @red;
-    urgent-background:           @background;
+    alternate-normal-background: #5c5dca;
+    selected-urgent-foreground:  #c76ec6;
+    urgent-foreground:           #c76ec6;
+    alternate-urgent-background: #5c5dca;
+    active-foreground:           #ffffff;
+    lightbg:                     #5c5dca;
+    selected-active-foreground:  #c76ec6;
+    alternate-active-background: #1e287d;
+    background:                  #1e287d;
+    bordercolor:                 #ffffff;
     alternate-normal-foreground: @foreground;
-    alternate-normal-background: @lightbg;
-    alternate-active-foreground: @blue;
-    alternate-active-background: @lightbg;
-    alternate-urgent-foreground: @red;
-    alternate-urgent-background: @lightbg;
-    y: #e798cb;
-    black: #212c8c;
+    normal-background:           #5c5dca;
+    lightfg:                     #ffffff;
+    selected-normal-background:  #c76ec6;
+    border-color:                #5c5dca;
+    spacing:                     2;
+    separatorcolor:              #798299;
+    urgent-background:           #5c5dca;
+    selected-urgent-background:  #c76ec6;
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            #5c5dca;
+    alternate-active-foreground: @active-foreground;
+    active-background:           #5c5dca;
+    selected-active-background:  #798299;
 }
-
-
-

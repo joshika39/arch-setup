@@ -1,0 +1,32 @@
+! Alien Moon
+
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+
+#define FOREGROUND #ffffff
+#define FOREGROUND_alt #798299
+#define BACKGROUND #1e287d
+#define BACKGROUND_alt #5c5dca
+
+#define ACCENT1 #c76ec6
+#define ACCENT2 #FF2191
+#define ACCENT3 #e798cb 
+#define ACCENT4 #5c5dca
+#define ACCENT5 #c76ec6 
+#define ACCENT6 #3496bd
+#define ACCENT7 #505566
+
+
+#define ALERT #007FFF
+#define ERROR #FE453D
+#define SUCCESS #7AFFB2
+#define WARNING #FEA53D
+
+
