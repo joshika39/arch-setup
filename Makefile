@@ -8,9 +8,9 @@ install-root: common-install common-configure # installs the basic stuff, run as
 
 install-user: user-packages user-configure # Install the common packages
 
-install-de: i3 # Installs the i3 and kde (minimal) Desktop enviroments (Run with sudo)
+install-de: i3 # Installs the i3 and kde (minimal) Desktop environments (Run with sudo)
 
-install-live-arch: user-packages-live user-configure i3 kde # Install a basic arc to a usb
+install-live-arch: user-packages-live user-configure i3 # Install a basic arc to a usb
 
 update-config: # Refresh the required files for a fresh start
 	cd common/scripts/ && ./update-git-config.sh ../baklist/list
@@ -46,7 +46,7 @@ hack:
 ### 
 # These are the functions for set up the basic packages
 # and disable the annoying beep sound
-# and of course the japanese environment
+# and of course the Japanese environment
 ###
 user-packages:
 	cd common/scripts/ && \
