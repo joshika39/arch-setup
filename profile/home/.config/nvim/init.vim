@@ -166,3 +166,5 @@ let g:Hexokinase_optInPatterns = [
 \     'hsla',
 \     'colour_names'
 \ ]
+
+set clipboard+=unnamedplus

@@ -17,6 +17,9 @@ xrdb -merge $HOME/.Xresources
 . $HOME/.config/kitty/scripts/change-theme.sh
 . $HOME/.config/rofi/scripts/change-theme.sh
 . $HOME/.config/zathura/scripts/change-theme.sh
+. $HOME/.config/dunst/scripts/change-theme.sh
+
+killall dunst
 
 kitty @ set-colors -a $HOME/.config/kitty/colors.conf
 

@@ -29,6 +29,7 @@ set $res1
 set $res2 
 
 set $mod Mod1
+set $mod2 Mod4
 
 # AUTOSTART
 
@@ -72,6 +73,29 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+f exec kitty ranger
+
+mode "layouts"{
+
+	bindsym 1 exec --no-startup-id ~/.config/i3/scripts/save-layout.sh 1
+	bindsym 2 exec --no-startup-id ~/.config/i3/scripts/save-layout.sh 2
+	bindsym 3 exec --no-startup-id ~/.config/i3/scripts/save-layout.sh 3
+	bindsym 4 exec --no-startup-id ~/.config/i3/scripts/save-layout.sh 4
+
+	bindsym q exec --no-startup-id ~/.config/i3/scripts/open-layout.sh 1
+	bindsym w exec --no-startup-id ~/.config/i3/scripts/open-layout.sh 2
+	bindsym e exec --no-startup-id ~/.config/i3/scripts/open-layout.sh 3
+	bindsym r exec --no-startup-id ~/.config/i3/scripts/open-layout.sh 4
+
+	bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+Shift+s mode "default"
+
+}
+
+
+# Layout management
+
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/i3/scripts/save-layout.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill

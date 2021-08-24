@@ -53,6 +53,7 @@ case $session in
 		;;
 
 	kde	)
+		export KDEWM=/usr/bin/i3
 		export GTK_IM_MODULE=ibus
 		export QT_IM_MODULE=ibus
 		export XMODIFIERS=@im=ibus

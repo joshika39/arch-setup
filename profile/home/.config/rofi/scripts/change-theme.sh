@@ -42,7 +42,7 @@ echo "selected-normal-foreground:  $FG;
     urgent-background:           $BG_alt;
     selected-urgent-background:  $a1;
     alternate-urgent-foreground: @urgent-foreground;
-    background-color:            $BG_alt;
+    background-color:            $BG;
     alternate-active-foreground: @active-foreground;
     active-background:           $BG_alt;
     selected-active-background:  $FG_alt;
