@@ -48,6 +48,11 @@ hack:
 # and disable the annoying beep sound
 # and of course the Japanese environment
 ###
+
+custom-packages:
+	cd common/scripts/ && \
+		./install-packages.sh ../files/user-packages.conf && \
+		sudo ./install-packages.sh ../files/user-packages.conf
 user-packages:
 	cd common/scripts/ && \
 		./install-packages.sh ../files/default-packages.conf && \
