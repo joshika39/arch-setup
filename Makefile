@@ -4,19 +4,39 @@ help: # Print help on Makefile
 	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
 	expand -t20
 
-install-root: common-install common-configure # installs the basic stuff, run as ROOT 
 
-install-user: user-packages user-configure # Install the common packages
+scripts=common/scripts/
 
-install-de: i3 # Installs the i3 and kde (minimal) Desktop environments (Run with sudo)
+# 'r' stands for Regular, and it installs the extra packages for a regular setup
+rfiles=../files/live
 
-install-live-arch: user-packages-live user-configure i3 # Install a basic arc to a usb
+# The 'l' stands for Live, and it contains the extra packages for the live setup
+lfiles=../files/live
 
-update-config: # Refresh the required files for a fresh start
-	cd common/scripts/ && ./update-git-config.sh ../baklist/list
+# This is for the Desktop environment installing path
+# It didn't look good with that long relative path
+# It can be used from two subdirectories in.
+profilf=../../profile/files
 
-update-home: # Copy the repository contents to HOME
-	cd common/scripts/ && ./update-home.sh ../baklist/list
+
+install-os: common-install common-configure # installs the basic stuff. You must run this first
+
+install-regular: required-packages regular-extra configure-user
+
+install-live: required-packages live-extra i3 configure-user # Install a basic arch to a USB disk
+
+install-de: $(DE) # Installs the i3 or KDE (minimal) Desktop environments, add your de choice as an argument (i3/kde)
+
+configure-user: 
+	cd profile/ && sudo ./disable-beep.sh && ./japanese/ja/configure-ja-xprofile.sh && ./setup-assets.sh
+
+update-config: update-fortune-git # Refresh the required files for a fresh start
+	cd $(scripts) && ./update-git-config.sh ../baklist/list
+
+update-home: update-fortune-home # Copy the repository contents to HOME
+	cd $(scripts) && ./update-home.sh ../baklist/list
+
+update-required: required-packages # Updates, the tools and so on
 
 git-config: # logins to git via SSH
 	cd profile/ && ./setup-git.sh
@@ -34,10 +54,10 @@ git-config: # logins to git via SSH
 # which is obligatory if you want to proceed
 ###
 common-install: 
-	cd common/scripts/ && ./install.sh $(VER) $(IPATH)
+	cd $(scripts) && ./install.sh $(VER) $(IPATH)
 
 common-configure: 
-	cd common/scripts/ && ./configure-basic.sh && ./login.sh
+	cd $(scripts) && ./configure-basic.sh && ./login.sh
 
 hack:
 	cd common/hack/ && sudo ./set-keyring.sh && sudo ./set-up-pacman.sh
@@ -48,40 +68,48 @@ hack:
 # and disable the annoying beep sound
 # and of course the Japanese environment
 ###
+required-packages:
+	cd $(scripts) && sudo ./install-packages.sh ../files/default-packages.conf
+	cd $(scripts) && ./install-packages.sh ../files/default-packages.conf
 
-custom-packages:
-	cd common/scripts/ && \
-		./install-packages.sh ../files/user-packages.conf && \
-		sudo ./install-packages.sh ../files/user-packages.conf
-user-packages:
-	cd common/scripts/ && \
-		./install-packages.sh ../files/default-packages.conf && \
-		sudo ./install-packages.sh ../files/default-packages.conf && \
-		./install-packages.sh ../files/extra-packages.conf && \
-		sudo ./install-packages.sh ../files/extra-packages.conf
+live-extra:
+	cd $(scripts) && sudo ./install-packages.sh $(lfiles)/extra-packages.conf
 
-user-packages-live:
-	cd common/scripts/ && \
-		./install-packages.sh ../files/default-packages.conf && \
-		sudo ./install-packages.sh ../files/default-packages.conf && \
-		./install-packages.sh ../files/extra-packages-live.conf && \
-		sudo ./install-packages.sh ../files/extra-packages-live.conf
+regular-extra:
+	cd $(scripts) && sudo ./install-packages.sh $(rfiles)/extra-packages.conf
 
-user-configure: 
-	cd profile/ && sudo ./disable-beep.sh && ./japanese/ja/configure-ja-xprofile.sh && ./setup-assets.sh
+
+# These two packages are the optional ones
+#
+live-user: #    Install preferred programs for a live environment
+	cd $(scripts) && sudo ./install-packages.sh $(lfiles)/user-packages.conf
+
+regular-user: # Installs preferred programs for a regular environment 
+	cd $(scripts) && sudo ./install-packages.sh $(rfiles)/user-packages.conf
 
 
 ###
-# These two (i3, kde) are for installing the required
-# packages as well from aur as the official repository
+# These two (i3, KDE) are for installing the required
+# packages as well from AUR as the official repository
 ###
 i3: 
-	cd common/scripts/ && \
-	sudo ./install-packages.sh ../../profile/files/i3-pkg.conf && \
-	./install-packages.sh ../../profile/files/i3-pkg.conf
+	cd $(scripts) && sudo ./install-packages.sh $(profilef)/i3-pkg.conf
+	cd $(scripts) && ./install-packages.sh $(profilef)/i3-pkg.conf
 
 kde: 
-	cd common/scripts/ && \
-	sudo ./install-packages.sh ../../profile/files/kde-pkg.conf && \
-	./install-packages.sh ../../profile/files/kde-pkg.conf
+	cd $(scripts) && sudo ./install-packages.sh $(profilef)/kde-pkg.conf
+	cd $(scripts) && ./install-packages.sh $(profilef)/kde-pkg.conf
 
+
+
+##################################
+##				##
+##		MISC		##
+##				##
+##################################
+
+update-fortune-git:
+	cd profile/ && sudo ./update-fortune.sh git
+
+update-fortune-home:
+	cd profile/ && sudo ./update-fortune.sh

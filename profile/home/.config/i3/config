@@ -51,7 +51,6 @@ bindsym $mod+c exec --no-startup-id killall dunst; exec --no-startup-id rofi -sh
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -columns 3 -lines 9
 bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/i3/scripts/i3lock.sh
 bindsym $mod+t exec --no-startup-id ~/.colors/scripts/change-theme.sh
-# bindsym --release $mod+d exec --no-startup-id dmenu_run
 
 # Use pactl to adjust volume in PulseAudio.:
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -63,7 +62,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-bindsym XF86Calculator exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh
+bindsym $mod+Shift+d exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh
 bindsym --release $mod+x exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
 
 

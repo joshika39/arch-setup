@@ -54,19 +54,19 @@ separator_color = "#000"
 
 [low]
     msg_urgency = low
-    background = "#ffffff"
-    foreground = "#1e287d"
+    background = "#33FFAA"
+    foreground = "#2F1660"
     timeout = 4
 
 [normal]
     msg_urgency = normal
-    background = "#ffffff"
-    foreground = "#1e287d"
+    background = "#33FFAA"
+    foreground = "#2F1660"
     timeout = 6
 
 [critical]
     msg_urgency = critical
-    background = "#1e287d"
+    background = "#2F1660"
     foreground = "#007FFF"
     timeout = 0
 
