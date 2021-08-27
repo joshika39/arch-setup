@@ -6,6 +6,7 @@ subdir=home/
 GIT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/$subdir" 
 homesub=
 backups=( 
+	".fehbg"
 	".xinitrc"
 	".bashrc"
 	".Xresources"
