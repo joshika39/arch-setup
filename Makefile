@@ -8,7 +8,7 @@ help: # Print help on Makefile
 scripts=common/scripts/
 
 # 'r' stands for Regular, and it installs the extra packages for a regular setup
-rfiles=../files/live
+rfiles=../files/regular
 
 # The 'l' stands for Live, and it contains the extra packages for the live setup
 lfiles=../files/live
@@ -38,6 +38,10 @@ update-home: update-fortune-home # Copy the repository contents to HOME
 
 update-required: required-packages # Updates, the tools and so on
 
+update-extra: $(DIST)-extra # Use 'DIST=' for the OS type (live/regular)
+
+update-user: $(DIST)-user # Use 'DIST=' for the OS type (live/regular)
+	
 git-config: # logins to git via SSH
 	cd profile/ && ./setup-git.sh
 
@@ -53,7 +57,7 @@ git-config: # logins to git via SSH
 # These are the functions for the first command
 # which is obligatory if you want to proceed
 ###
-common-install: 
+common-install/: 
 	cd $(scripts) && ./install.sh $(VER) $(IPATH)
 
 common-configure: 
@@ -81,10 +85,10 @@ regular-extra:
 
 # These two packages are the optional ones
 #
-live-user: #    Install preferred programs for a live environment
+live-user:
 	cd $(scripts) && sudo ./install-packages.sh $(lfiles)/user-packages.conf
 
-regular-user: # Installs preferred programs for a regular environment 
+regular-user:
 	cd $(scripts) && sudo ./install-packages.sh $(rfiles)/user-packages.conf
 
 
@@ -113,3 +117,9 @@ update-fortune-git:
 
 update-fortune-home:
 	cd profile/ && sudo ./update-fortune.sh
+
+test-live:
+	@echo live
+
+test-regular:
+	@echo regular

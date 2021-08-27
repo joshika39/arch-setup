@@ -52,6 +52,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -columns 3 -line
 bindsym $mod+Ctrl+l exec --no-startup-id ~/.config/i3/scripts/i3lock.sh
 bindsym $mod+t exec --no-startup-id ~/.colors/scripts/change-theme.sh
 
+
+
 # Use pactl to adjust volume in PulseAudio.:
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -64,6 +66,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 bindsym $mod+Shift+d exec --no-startup-id   ~/.config/i3/scripts/screencheck.sh
 bindsym --release $mod+x exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
+
+bindsym $mod+Ctrl+space exec --no-startup-id ~/.config/i3/scripts/change-keyboard.sh
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -94,7 +98,7 @@ mode "layouts"{
 
 # Layout management
 
-bindsym $mod+Shift+s exec --no-startup-id ~/.config/i3/scripts/save-layout.sh
+bindsym $mod+Shift+s exec --no-startup-id source ~/.config/i3/scripts/save-layout.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
