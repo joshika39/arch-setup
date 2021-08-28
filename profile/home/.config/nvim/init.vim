@@ -19,7 +19,25 @@ call plug#begin(stdpath('data') . '/plugged')
 
 	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-	Plug 'valloric/youcompleteme'
+"	Plug 'dracula/vim'
+"
+	Plug 'scrooloose/nerdtree'
+	
+	Plug 'ryanoasis/vim-devicons'
+
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	
+	Plug 'junegunn/fzf.vim'
+
+	Plug 'mbbill/undotree'
+
+	Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+	
+	Plug 'tpope/vim-commentary'
+	
+	Plug 'Yggdroot/indentLine'
+
+	Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
@@ -153,18 +171,60 @@ if has('langmap') && exists('+langremap')
 endif
 
 set spell
-set termguicolors
+
+if (has("termguicolors"))
+	set termguicolors
+endif
+syntax enable
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Toggle
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-let g:Hexokinase_optInPatterns = [
-\     'full_hex',
-\     'triple_hex',
-\     'rgb',
-\     'rgba',
-\     'hsl',
-\     'hsla',
-\     'colour_names'
-\ ]
-
 set clipboard+=unnamedplus
+
+
+" open new split panes to right and below
+set splitright
+set splitbelow
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" open terminal on ctrl+n
+function! OpenTerminal()
+  split term://bash
+  resize 10
+endfunction
+nnoremap <c-n> :call OpenTerminal()<CR>
+
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+
+nnoremap <F5> :UndotreeToggle<CR>
+
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+let g:indentLine_fileType = ['c', 'cpp', 'sh']
+
+set list lcs=tab:\|\ 

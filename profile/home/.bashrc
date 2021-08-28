@@ -269,3 +269,5 @@ export RESOLUTION2=
 
 export KEYBOARD=1
 # source $HOME/.config/xinit.d/screencheck.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
