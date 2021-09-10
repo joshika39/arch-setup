@@ -1,0 +1,32 @@
+! Light in the dark 
+
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+
+#define FOREGROUND #C1F059
+#define FOREGROUND_alt #506325
+#define BACKGROUND #3A104A
+#define BACKGROUND_alt #651B80
+
+#define ACCENT1 #F04192
+#define ACCENT2 #F0674D
+#define ACCENT3 #29F0A0
+#define ACCENT4 ACCENT3 
+#define ACCENT5 ACCENT2 
+#define ACCENT6 ACCENT2
+#define ACCENT7 ACCENT1
+
+
+#define ALERT #007FFF
+#define ERROR #FE453D
+#define SUCCESS #7AFFB2
+#define WARNING #FEA53D
+
+

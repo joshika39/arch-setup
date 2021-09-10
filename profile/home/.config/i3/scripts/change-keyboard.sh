@@ -8,7 +8,7 @@ keyboard=$( cat $HOME/.keyboard )
 
  (( keyboard+= 1 ))
 
-if (( $keyboard >= 3 )); then
+if (( $keyboard >= 4 )); then
 	keyboard=0
 fi
 
@@ -17,7 +17,8 @@ case $keyboard in
 	0 )	ibus engine xkb:us::eng ;;
 	1 )	ibus engine anthy ;;
 	2 )	ibus engine xkb:hu:101_qwerty_comma_nodead:hun ;;
-	* ) 	echo error > /tmp/lang.txt ;;
+	3 )	ibus engine xkb:rs:latin:srp ;;
+	* )	echo error > /tmp/lang.txt ;;
 esac
 
 echo $keyboard > $HOME/.keyboard

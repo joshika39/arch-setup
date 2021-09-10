@@ -1,0 +1,32 @@
+! test
+
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+
+#define FOREGROUND #373b3e
+#define FOREGROUND_alt #137a7f
+#define BACKGROUND #bec8d1
+#define BACKGROUND_alt #86cecb
+
+#define ACCENT1 #137a7f 
+#define ACCENT2 #e12885
+#define ACCENT3 ACCENT1
+#define ACCENT4 ACCENT1 
+#define ACCENT5 ACCENT1
+#define ACCENT6 ACCENT2
+#define ACCENT7 ACCENT2
+
+
+#define ALERT #007FFF
+#define ERROR #FE453D
+#define SUCCESS #7AFFB2
+#define WARNING #FEA53D
+
+

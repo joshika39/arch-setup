@@ -257,7 +257,7 @@ fi
 umask 022
 
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH="/opt/lampp/bin:/$HOME/bin:$PATH"
 fi
 
 

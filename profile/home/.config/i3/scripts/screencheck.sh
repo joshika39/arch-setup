@@ -37,13 +37,14 @@ done < $HOME/.2ndres
 
 	selected=$(echo "Laptop Only
 HDMI Only
-Dual Monitor" | rofi -dmenu -p "Select Monitor Setup ")
+Dual Monitor
+Duplicate" | rofi -dmenu -p "Select Monitor Setup ")
 	
 [[ -z $selected ]] && exit
 
 	if [ "$selected" == "Laptop Only" ]; then
 		xrandr --output "$monitor2" --off
-    		exit
+		exit
 	fi
 
 	if [ "$selected" == "HDMI Only" ]; then
@@ -52,10 +53,15 @@ Dual Monitor" | rofi -dmenu -p "Select Monitor Setup ")
 		xrandr --output "$monitor2" --mode $mode
 		exit
 	fi
-#	
+
 	if [ "$selected" == "Dual Monitor" ]; then
+		position=$(echo "left-of
+rigth-of" | rofi -dmenu -p "Select Monitor position")
 		mode=$(cat $HOME/.2ndres | rofi -dmenu -p "Select Resolution")
-		xrandr --output "$monitor2" --mode $mode --right-of "$monitor1"
+		xrandr --output "$monitor2" --mode $mode --$position "$monitor1"
+	fi
+	if [ "$selected" == "Duplicate" ];then
+		xrandr --output "$monitor2" --mode 1920x1080 --same-as $monitor1
 	fi
 #fi
 

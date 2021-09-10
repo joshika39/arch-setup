@@ -225,6 +225,6 @@ nnoremap <F5> :UndotreeToggle<CR>
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-let g:indentLine_fileType = ['c', 'cpp', 'sh']
+" let g:indentLine_fileType = ['c', 'cpp', 'sh']
 
 set list lcs=tab:\|\ 
