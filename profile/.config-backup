@@ -16,4 +16,6 @@ backups=(
 	"ranger"
 	"xinit.d"
 	"nvim"
-	"locale.conf")
+	"locale.conf"
+	"joplin-desktop/userchrome.css"
+	"joplin-desktop/userstyle.css")

@@ -26,7 +26,7 @@ set $monitor1 eDP-1
 set $monitor2 HDMI-1-0
 
 set $res1 
-set $res2 1366x768
+set $res2 
 
 set $mod Mod1
 set $mod2 Mod4
