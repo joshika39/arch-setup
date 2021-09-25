@@ -3,15 +3,16 @@
  * User: Rasi
  * Copyright: Rasmus Steinke
  ******************************************************************************/
+
 @import "colors.rasi"
 window {
-    background-color: @bordercolor;
-    border:           5px;
-    padding:          10;
+    background-color: @foreground;
+    border:           1;
+    padding:          5;
 }
 mainbox {
     border:  0;
-    padding: 10;
+    padding: 0;
 }
 message {
     border:       1px dash 0px 0px ;
@@ -32,6 +33,10 @@ listview {
 element {
     border:  0;
     padding: 1px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
 element.normal.normal {
     background-color: @normal-background;

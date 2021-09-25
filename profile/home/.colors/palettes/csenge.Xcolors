@@ -1,0 +1,32 @@
+! Csenge
+
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+
+#define FOREGROUND #c2c2c2
+#define FOREGROUND_alt #c4c4c4
+#define BACKGROUND #2c2c2c
+#define BACKGROUND_alt #424242
+
+#define ACCENT1 #47cacc
+#define ACCENT2 #63bcc9
+#define ACCENT3 #cdb3d4
+#define ACCENT4 #e7b7c8 
+#define ACCENT5 #ffb388 
+#define ACCENT6 ACCENT1
+#define ACCENT7 ACCENT3
+
+
+#define ALERT #007FFF
+#define ERROR #FE453D
+#define SUCCESS #7AFFB2
+#define WARNING #FEA53D
+
+

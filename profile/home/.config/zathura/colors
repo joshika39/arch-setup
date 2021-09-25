@@ -1,12 +1,12 @@
  # Zathura Color Preferennces
-set default-bg "#413D94"
-set default-fg "#5DE046"
+set default-bg "#2c2c2c"
+set default-fg "#c2c2c2"
 
-set statusbar-fg "#5DE046"
-set statusbar-bg "#5851E0"
+set statusbar-fg "#c2c2c2"
+set statusbar-bg "#424242"
 
-set inputbar-bg "#5851E0"
-set inputbar-fg "#5DE046" 
+set inputbar-bg "#424242"
+set inputbar-fg "#c2c2c2" 
 
 set notification-error-bg "#FE453D"
 set notification-error-fg "#151515" 
@@ -14,8 +14,8 @@ set notification-error-fg "#151515"
 set notification-warning-bg "#FEA53D"
 set notification-warning-fg "#151515"
 
-set highlight-color "#F4823A"
-set highlight-active-color "#F4823A" 
+set highlight-color "#47cacc"
+set highlight-active-color "#63bcc9" 
 
 set completion-highlight-fg "#151515" 
 set completion-highlight-bg "#90A959" 

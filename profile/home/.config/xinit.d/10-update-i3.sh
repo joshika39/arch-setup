@@ -23,6 +23,6 @@ sed -i "/export MONITOR1/c\\export MONITOR1=$MONITOR1" $loc
 sed -i "/export MONITOR2/c\\export MONITOR2=$MONITOR2" $loc
 
 sed -i "/export RESOLUTION1/c\\export RESOLUTION1=$RESOLUTION1" $loc
-sed -i "/export RESOLUTION2/c\\export RESOLUTION2=$resolution2" $loc
+sed -i "/export RESOLUTION2/c\\export RESOLUTION2=$RESOLUTION2" $loc
 
 . $loc

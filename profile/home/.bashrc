@@ -265,7 +265,7 @@ export MONITOR1=eDP-1
 export MONITOR2=HDMI-1-0
 
 export RESOLUTION1=
-export RESOLUTION2=
+export RESOLUTION2=1366x768
 
 export KEYBOARD=1
 # source $HOME/.config/xinit.d/screencheck.sh

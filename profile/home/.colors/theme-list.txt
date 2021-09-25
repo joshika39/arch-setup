@@ -4,3 +4,5 @@ purple-banzai
 light-in-the-dark
 green-blast
 miku
+csenge
+logiscool

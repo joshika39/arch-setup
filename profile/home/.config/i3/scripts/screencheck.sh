@@ -56,7 +56,7 @@ Duplicate" | rofi -dmenu -p "Select Monitor Setup ")
 
 	if [ "$selected" == "Dual Monitor" ]; then
 		position=$(echo "left-of
-rigth-of" | rofi -dmenu -p "Select Monitor position")
+right-of" | rofi -dmenu -p "Select Monitor position")
 		mode=$(cat $HOME/.2ndres | rofi -dmenu -p "Select Resolution")
 		xrandr --output "$monitor2" --mode $mode --$position "$monitor1"
 	fi
@@ -65,10 +65,12 @@ rigth-of" | rofi -dmenu -p "Select Monitor position")
 	fi
 #fi
 
-source ./$HOME/.config/xinit.d/00-detect-setup.sh
+source $HOME/.config/xinit.d/00-detect-setup.sh
 
-$HOME/.config/xinit.d/10-update-i3.sh
+source $HOME/.config/xinit.d/10-update-i3.sh
 
 feh --no-fehbg --bg-fill "$HOME/.BG.jpg"
 
 $HOME/.config/polybar/launch.sh
+
+i3-msg reload
